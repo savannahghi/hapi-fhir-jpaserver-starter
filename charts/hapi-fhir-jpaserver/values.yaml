@@ -68,14 +68,14 @@ ingress:
     konghq.com/https-redirect-status-code: "308"
     kubernetes.io/ingress.class: kong
   hosts:
-    - host: fhir.test.slade360edi.com
+    - host: ""
       pathType: ImplementationSpecific
       paths: ["/"]
   # -- ingress TLS config
   tls:
-    - secretName: letsencrypt-prod
+    - secretName: ""
       hosts:
-        - fhir.test.slade360edi.com
+        - ""
 
 # -- set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge).
 # This is ignored if `resources` is set (`resources` is recommended for production).
