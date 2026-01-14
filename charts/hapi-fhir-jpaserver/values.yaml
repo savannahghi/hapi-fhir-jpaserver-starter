@@ -288,6 +288,25 @@ extraConfig: |
         valueset_membership_mode: USE_EXPANSION
         code_lookup_mode: USE_VALIDATE_CODE_OPERATION
         maximum_expansion_size: 5000
+      fhir_version: R5
+      openapi_enabled: true
+      allow_external_references: true
+      advanced_lucene_indexing: false
+      bulk_export_enabled: true
+      bulk_import_enabled: true
+      allowed_bundle_types: COLLECTION,DOCUMENT,MESSAGE,TRANSACTION,TRANSACTIONRESPONSE,BATCH,BATCHRESPONSE,HISTORY,SEARCHSET
+      allow_cascading_deletes: true
+      allow_contains_searches: true
+      allow_multiple_delete: true
+      default_encoding: JSON
+      default_pretty_print: true
+      default_page_size: 50
+      expunge_enabled: true
+      filter_search_enabled: true
+      server_id_strategy: UUID
+      delete_expunge_enabled: true
+      search_index_full_text_enabled: true
+      validate_resource_status_for_package_upload: false
 
 autoscaling:
   enabled: false
