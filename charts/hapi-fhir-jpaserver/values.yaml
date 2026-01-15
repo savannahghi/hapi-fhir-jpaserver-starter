@@ -288,6 +288,14 @@ extraConfig: |
         valueset_membership_mode: USE_EXPANSION
         code_lookup_mode: USE_VALIDATE_CODE_OPERATION
         maximum_expansion_size: 5000
+      implementationguides:
+        hl7_terminology_r5:
+          name: hl7.terminology.r5
+          version: 7.0.1
+          installMode: STORE_AND_INSTALL
+          reloadExisting: false
+          supported_resource_types:
+            - ValueSet
       fhir_version: R5
       openapi_enabled: true
       allow_external_references: true
