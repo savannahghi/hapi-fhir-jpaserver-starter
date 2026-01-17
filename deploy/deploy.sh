@@ -21,7 +21,7 @@ helm upgrade \
     --set ingress.enabled=false \
     --version="0.17.3" \
     --wait \
-    --timeout 600s \
+    --timeout 3600s \
     -f ../charts/hapi-fhir-jpaserver/values.yaml \
     -f ../charts/hapi-fhir-jpaserver/instances/${ENVIRONMENT}.yaml \
     hapi-fhir-${ENVIRONMENT} \
