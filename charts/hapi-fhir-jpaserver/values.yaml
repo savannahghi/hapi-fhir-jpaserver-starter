@@ -293,7 +293,7 @@ extraConfig: |
           name: hl7.terminology.r5
           version: 7.0.1
           installMode: STORE_AND_INSTALL
-          reloadExisting: false
+          reloadExisting: true
           installResourceTypes:
             - ValueSet
             - CodeSystem
