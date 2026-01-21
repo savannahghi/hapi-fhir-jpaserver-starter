@@ -295,8 +295,8 @@ extraConfig: |
           installMode: STORE_AND_INSTALL
           reloadExisting: true
           installResourceTypes:
-            - ValueSet
             - CodeSystem
+            - ValueSet
       fhir_version: R5
       openapi_enabled: true
       allow_external_references: true
