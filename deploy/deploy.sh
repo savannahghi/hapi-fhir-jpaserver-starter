@@ -18,6 +18,8 @@ helm upgrade \
     --set externalDatabase.password="${DB_PASSWORD}" \
     --set externalDatabase.database="${DB_NAME}" \
     --set gateway.host="${DOMAIN_NAME}" \
+    --set auth.username="${HAPI_API_USERNAME}" \
+    --set auth.password="${HAPI_API_PASSWORD}" \
     --set ingress.enabled=false \
     --version="0.17.3" \
     --wait \

@@ -14,3 +14,6 @@ tolerations:
     key: platform.sil.io/hapi_fhir_jpaserver_workload
     operator: Equal
     value: "true"
+
+auth:
+  enabled: true

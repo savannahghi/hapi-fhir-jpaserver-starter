@@ -1,0 +1,47 @@
+{{- if .Values.auth.enabled }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.auth.consumerName }}-secret
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "hapi-fhir-jpaserver.labels" . | nindent 4 }}
+type: Opaque
+stringData:
+  username: {{ .Values.auth.username | required "auth.username is required" }}
+  password: {{ .Values.auth.password | required "auth.password is required" }}
+
+---
+apiVersion: apisix.apache.org/v1alpha1
+kind: Consumer
+metadata:
+  name: {{ .Values.auth.consumerName }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "hapi-fhir-jpaserver.labels" . | nindent 4 }}
+spec:
+  credentials:
+    - name: basic-auth-{{ .Values.auth.consumerName }}
+      type: basic-auth
+      secretRef:
+        name: {{ .Values.auth.consumerName }}-secret
+
+---
+apiVersion: apisix.apache.org/v1alpha1
+kind: PluginConfig
+metadata:
+  name: {{ include "hapi-fhir-jpaserver.fullname" . }}-auth-plugin
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "hapi-fhir-jpaserver.labels" . | nindent 4 }}
+spec:
+  plugins:
+    - name: basic-auth
+      config: {}
+    - name: cors
+      config:
+        allow_origins: "*"
+        allow_methods: "*"
+        allow_headers: "*"
+        expose_headers: "*"
+{{- end }}
