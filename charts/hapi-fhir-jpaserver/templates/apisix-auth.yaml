@@ -25,6 +25,11 @@ spec:
       type: basic-auth
       secretRef:
         name: {{ .Values.auth.consumerName }}-secret
+  gatewayRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: apisix-default-gateway
+    namespace: apisix-gateway
 
 ---
 apiVersion: apisix.apache.org/v1alpha1
