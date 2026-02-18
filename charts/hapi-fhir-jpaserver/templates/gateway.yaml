@@ -50,6 +50,15 @@ spec:
     - path:
         type: PathPrefix
         value: "/"
+    {{- if .Values.auth.enabled }}
+    filters:
+    - type: ExtensionRef
+      extensionRef:
+        group: apisix.apache.org
+        kind: PluginConfig
+        name: {{ include "hapi-fhir-jpaserver.fullname" . }}-auth-plugin
+        namespace: {{ .Release.Namespace }}
+    {{- end }}
     backendRefs:
     - name: {{ include "hapi-fhir-jpaserver.fullname" . }}
       port: {{ .Values.service.port }}

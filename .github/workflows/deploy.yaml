@@ -68,6 +68,8 @@ jobs:
           DB_NAME: ${{ secrets.DB_NAME }}
           DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
           ENVIRONMENT: ${{ matrix.environment }}
+          HAPI_API_USERNAME: ${{ secrets.HAPI_API_USERNAME }}
+          HAPI_API_PASSWORD: ${{ secrets.HAPI_API_PASSWORD }}
 
         shell: bash
         run: cd deploy/ && cat deploy.sh && sh deploy.sh

@@ -323,3 +323,9 @@ autoscaling:
   maxReplicas: 3
   targetCPUUtilizationPercentage: 90
   targetMemoryUtilizationPercentage: 90
+
+auth:
+  enabled: true
+  username: "fhir-client-user"
+  password: ""  # Set via --set in deployment (from GitHub Secrets)
+  consumerName: "hapi-fhir-consumer"
