@@ -48,6 +48,20 @@ spec:
   rules:
   - matches:
     - path:
+        type: Exact
+        value: "/fhir/ValueSet"
+    backendRefs:
+    - name: {{ include "hapi-fhir-jpaserver.fullname" . }}
+      port: {{ .Values.service.port }}
+    filters:
+    - type: ExtensionRef
+      extensionRef:
+        group: apisix.apache.org
+        kind: PluginConfig
+        name: {{ include "hapi-fhir-jpaserver.fullname" . }}-plugin
+        namespace: {{ .Release.Namespace }}
+  - matches:
+    - path:
         type: PathPrefix
         value: "/"
     {{- if .Values.auth.enabled }}
