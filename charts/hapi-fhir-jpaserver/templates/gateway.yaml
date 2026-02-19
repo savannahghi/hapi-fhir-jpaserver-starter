@@ -48,8 +48,8 @@ spec:
   rules:
   - matches:
     - path:
-        type: Exact
-        value: "/fhir/ValueSet"
+        type: PathPrefix
+        value: "/fhir/ValueSet/"
     backendRefs:
     - name: {{ include "hapi-fhir-jpaserver.fullname" . }}
       port: {{ .Values.service.port }}
