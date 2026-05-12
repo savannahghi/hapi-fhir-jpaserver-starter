@@ -288,6 +288,7 @@ extraConfig: |
         valueset_membership_mode: USE_EXPANSION
         code_lookup_mode: USE_VALIDATE_CODE_OPERATION
         maximum_expansion_size: 5000
+        reuse_cached_search_results_millis: 0
       implementationguides:
         hl7_terminology_r5:
           name: hl7.terminology.r5

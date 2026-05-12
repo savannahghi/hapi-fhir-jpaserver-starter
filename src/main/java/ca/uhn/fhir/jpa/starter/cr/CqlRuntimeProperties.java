@@ -4,7 +4,7 @@ public class CqlRuntimeProperties {
 
 	private Boolean debug_logging_enabled = false;
 	private Boolean enable_validation = false;
-	private Boolean enable_expression_caching = true;
+	private Boolean enable_expression_caching = false;
 
 	public boolean isDebugLoggingEnabled() {
 		return debug_logging_enabled;
